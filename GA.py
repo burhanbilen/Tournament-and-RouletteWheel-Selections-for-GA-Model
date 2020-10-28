@@ -2,14 +2,9 @@ import random
 from ITEM import Item
 
 ITEMS = [Item(random.randint(0,20), random.randint(0,20)) for x in range(0,20)]
-
-#print(ITEMS[0].value, ITEMS[0].weight)
-
 CAPACITY = 10*len(ITEMS)
-
-POP_SIZE = 10
-
-ITER = 2
+POP_SIZE = 20
+ITER = 5
 
 def fitness(target):
     total_value = 0
@@ -34,7 +29,6 @@ def create_starting_population(amount):
 def create_individuals():
     return [random.randint(0,1) for x in range(0,len(ITEMS))]
 
-
 def mutate(individiual):
     r=random.randint(0,len(individiual)-1)
 
@@ -43,21 +37,16 @@ def mutate(individiual):
     else:
         individiual[r] = 0
 
-
 def crossover(pop):
     parent_elitism = 0.2
-
     parent_length = int(parent_elitism*len(pop))
-
     parents = pop[:parent_length]
-
+    
     mutate(parents[random.randint(0,len(parents)-1)])
-
+    
     children = []
-
+    
     desired_lenght = len(pop)-len(parents)
-
-    #print(desired_lenght)
 
     while len(children) < desired_lenght:
         p1 = pop[random.randint(0, len(parents)-1)]
@@ -67,14 +56,13 @@ def crossover(pop):
         
         children.append(child)
 
-    parents.extend(children)
+        parents.extend(children)
     
     if ask == str(1):
         return TournamentSelection(parents, POP_SIZE)
     else:
         return RouletteWheelSelection(parents)
             
-
 def TournamentSelection(population, tournament_size):
     best = 0
     temp = [0]
@@ -120,4 +108,3 @@ if __name__ == '__main__':
 
       population = crossover(population)
       generation += 1
-
