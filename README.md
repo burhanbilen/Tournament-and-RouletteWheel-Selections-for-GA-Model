@@ -1,4 +1,6 @@
 Selection functions are given below:
+
+Tournament Selection:
 ```
 def TournamentSelection(population, tournament_size):
     best = 0
@@ -11,9 +13,10 @@ def TournamentSelection(population, tournament_size):
             best = fit
         total.append(temp)
     return total
+```
 
-
-#--------------------------------------------------------------------------
+Roulette Wheel Selection:
+```
 def RouletteWheelSelection(population):
     fit_sum = fitnessSumforRoulette(population)
     boundary = random.randint(0, fit_sum)
@@ -34,4 +37,4 @@ def fitnessSumforRoulette(population):
     for i in population:
         total += fitness(i)
     return total
-´´´
+```
