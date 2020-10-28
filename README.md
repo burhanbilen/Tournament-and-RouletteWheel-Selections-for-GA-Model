@@ -1,4 +1,4 @@
-Selection functions are given below:
+Selection functions are given below.
 
 ***Tournament Selection:***
 ```
