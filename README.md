@@ -1,5 +1,5 @@
 Selection functions are given below:
-
+```
 def TournamentSelection(population, tournament_size):
     best = 0
     temp = [0]
@@ -34,3 +34,4 @@ def fitnessSumforRoulette(population):
     for i in population:
         total += fitness(i)
     return total
+´´´
