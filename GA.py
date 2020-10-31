@@ -2,7 +2,7 @@ import random
 from ITEM import Item
 
 ITEMS = [Item(random.randint(0,20), random.randint(0,20)) for x in range(0,20)]
-CAPACITY = 10*len(ITEMS)
+CAPACITY = 10 * len(ITEMS)
 POP_SIZE = 20
 ITER = 5
 
